@@ -18,7 +18,7 @@ export default {
   methods:{
     GetReciveRequest(Request){
       this.SearchTerm = Request;
-      console.log(this.SearchTerm);
+      // console.log(this.SearchTerm);
     }
   }
 }
@@ -28,9 +28,9 @@ export default {
   <AppHeader @ReciveRequest="GetReciveRequest"/>
 
   <main>
-    <AppFilms />
+    <AppFilms  :SendTerm="SearchTerm"/>
     <hr>
-    <AppTvSeries />
+    <AppTvSeries :SendTerm="SearchTerm"/>
   </main>
 
 </template>
