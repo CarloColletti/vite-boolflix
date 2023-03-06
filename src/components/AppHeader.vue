@@ -1,7 +1,13 @@
 <script>
 import AppSearch from "./AppSearch.vue"
 export default{
+  emits:[ "ReciveRequest" ],
   components:{ AppSearch },
+  methods:{
+    SendRequest(Request){
+      this.$emit('ReciveRequest',Request)
+    }
+  }
 };
 </script>
 
@@ -16,7 +22,7 @@ export default{
         </div>
         
         <div class="col">
-          <AppSearch />
+          <AppSearch @search="SendRequest"/>
         </div>
 
       </div>
