@@ -33,7 +33,7 @@ export default {
   <main>
     <div v-if="!store.isLoading">
       <AppFilms  :SendTerm="SearchTerm"/>
-      <hr>
+      <hr class="my-5">
       <AppTvSeries :SendTerm="SearchTerm"/>
     </div>
     <div v-else>
@@ -49,6 +49,6 @@ body{
 }
 
 hr{
-  border: 2px solid black;
+  border: 2px solid grey;
 }
 </style>
