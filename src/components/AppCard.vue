@@ -1,6 +1,12 @@
 <script>
   import { store } from "../data/store"
+  import Star from "./Stars.vue"
+
   export default {
+    components: {
+    Star
+    },  
+
     props: {
       Name: String,
       Title: String,
@@ -11,26 +17,27 @@
       Overview: String,
     },
 
+    
     // converto il termine della api del movie database con quello delle badiere 
     computed: {
-    OriginalLanguageConverter() {
-      if (this.Language == "en") {
-        return "gb";
-      } else if (this.Language == "ja") {
-        return "jp";
-      } else {
-        return this.Language;
-      }
+      OriginalLanguageConverter() {
+        if (this.Language == "en") {
+          return "gb";
+        } else if (this.Language == "ja") {
+          return "jp";
+        } else {
+          return this.Language;
+        }
+      },
     },
-  },
-
-  data() {
-    return {
-      store,
-      BaseFlagUrl: "https://flagcdn.com/w40/",
-    }
-  },
-}
+    
+    data() {
+      return {
+        store,
+        BaseFlagUrl: "https://flagcdn.com/w40/",
+      };
+    },
+  }
 </script>
 
 <template>
@@ -51,7 +58,8 @@
               Titolo: {{ Title }}
             </h4>
             <div class="py-1 fs-4">
-              Voto: {{ Vote }}
+              <Span>Voto</Span> 
+              <Star :VoteNumber="Vote"/>
             </div>
             <div class="py-1 fs-5">
               <span >Lingia originale:</span>
