@@ -13,7 +13,7 @@
 
     data(){
       return{
-        BaseImgUrl: "https://image.tmdb.org/t/p/w342",
+        store,
       }
     }
   }
@@ -24,13 +24,13 @@
       <div class="card-custom">
         <!-- imagine di copertina -->
         <div class="front">
-          <img :src="`${BaseImgUrl}${FrontCover}`" class="img-fluid img-h-max" alt="">
+          <img :src="`${store.BaseImgUrl}${FrontCover}`" class="img-fluid img-h-max" alt="">
         </div>
   
         <!-- contenuto nel retro -->
         <div class="back pb-5">
           <div>
-            <img :src="`${BaseImgUrl}${BackCover}`" class="img-fluid" alt="">
+            <img :src="`${store.BaseImgUrl}${BackCover}`" class="img-fluid" alt="">
           </div>
           <div class="px-3">
             <h4 class="fs-4">
@@ -57,7 +57,7 @@
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .card-custom{
   border: 3px solid white;
   color: white;
@@ -67,7 +67,17 @@
   height: 100%;
 }
 
-/* .front{display: none;} */
+.col:hover{
+  .front{
+    display: none;
+  }
+
+  .back{
+    display: block;
+  }
+}
+/* 
+.front{display: none;} */
 
 .back{display: none;}
 
