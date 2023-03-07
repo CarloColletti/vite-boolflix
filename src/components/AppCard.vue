@@ -5,22 +5,36 @@
       Name: String,
       Title: String,
       Language: String,
-      Vote: String,
+      Vote: Number,
       BackCover: String,
       FrontCover: String,
       Overview: String,
     },
 
-    data(){
-      return{
-        store,
+    // converto il termine della api del movie database con quello delle badiere 
+    computed: {
+    OriginalLanguageConverter() {
+      if (this.Language == "en") {
+        return "gb";
+      } else if (this.Language == "ja") {
+        return "jp";
+      } else {
+        return this.Language;
       }
+    },
+  },
+
+  data() {
+    return {
+      store,
+      BaseFlagUrl: "https://flagcdn.com/w40/",
     }
-  }
+  },
+}
 </script>
 
 <template>
-    <div class="col">
+    <div class="col text-center">
       <div class="card-custom">
         <!-- imagine di copertina -->
         <div class="front">
@@ -40,7 +54,8 @@
               Voto: {{ Vote }}
             </div>
             <div class="py-1 fs-5">
-              Lingia originale: {{ Language }}
+              <span >Lingia originale:</span>
+              <img :src="BaseFlagUrl+OriginalLanguageConverter+'.png'" class="px-3" alt=""> 
             </div>
 
             <div class="over my-3">
@@ -76,8 +91,6 @@
     display: block;
   }
 }
-/* 
-.front{display: none;} */
 
 .back{display: none;}
 
