@@ -42,7 +42,7 @@ export default {
 <template>
   <section>
     <div class="container">
-      <h2 v-if="store.movies.length > 0" class="text-white">
+      <h2 v-if="store.movies.length > 0" class="text-white text-white fs-2 py-4">
         Ho trovato: {{ store.movies.length }} Film
       </h2>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-5">
