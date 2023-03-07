@@ -16,6 +16,7 @@ export default {
   
 
   methods:{
+    // riceve il termine dal search e da il termine a request 
     GetReciveRequest(Request){
       this.SearchTerm = Request;
       // console.log(this.SearchTerm);
@@ -27,6 +28,7 @@ export default {
 <template>
   <AppHeader @ReciveRequest="GetReciveRequest"/>
 
+  <!-- request viene inviato per effettuare la ricerca e creare le card -->
   <main>
     <AppFilms  :SendTerm="SearchTerm"/>
     <hr>

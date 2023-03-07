@@ -10,17 +10,19 @@ export default {
   },
 
   data(){
-      return{
+    return{
       store,
     }
   },
 
+  // al cambio del dom si attiva questa funzione 
   watch: {
     SendTerm(NewTerm) {
       this.StartSearch(NewTerm);
     },
   },
 
+  // funzione di ricerca 
   methods:{
     StartSearch(Term){
       axios

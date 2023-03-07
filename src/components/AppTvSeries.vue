@@ -15,12 +15,14 @@ export default {
     }
   },
 
+  // al cambio del dom si attiva questa funzione
   watch: {
     SendTerm(NewTerm) {
       this.StartSearch(NewTerm);
     },
   },
 
+  // funzione di ricerca 
   methods: {
     StartSearch(Term) {
       axios
