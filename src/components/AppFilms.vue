@@ -25,6 +25,7 @@ export default {
   // funzione di ricerca 
   methods:{
     StartSearch(Term){
+      store.isLoading = true;
       axios
       .get(
         `${store.baseUrl}movie?api_key=${store.apiKey}&query=${Term}&language=it`
@@ -32,6 +33,7 @@ export default {
       .then((response) => {
         store.movies = response.data.results;
       })
+      .finally(() => (store.isLoading = false));
       
     },
     

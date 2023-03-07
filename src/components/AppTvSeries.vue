@@ -25,13 +25,15 @@ export default {
   // funzione di ricerca 
   methods: {
     StartSearch(Term) {
+      store.isLoading = true;
       axios
-        .get(
-          `${store.baseUrl}tv?api_key=${store.apiKey}&query=${Term}&language=it`
-        )
-        .then((response) => {
-          store.series = response.data.results;
-        })
+      .get(
+        `${store.baseUrl}tv?api_key=${store.apiKey}&query=${Term}&language=it`
+      )
+      .then((response) => {
+        store.series = response.data.results;
+      })
+      .finally(() => (store.isLoading = false));
 
     },
 
