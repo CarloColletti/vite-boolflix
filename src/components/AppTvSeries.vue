@@ -43,7 +43,7 @@ export default {
 
 <template>
   <section>
-    <div class="container">
+    <div class="container" v-if="store.series.length != 0">
       <h2 v-if="store.series.length > 0" class="text-white fs-2 py-4">
         Ho trovato: {{ store.series.length }} Serie Tv
       </h2>
@@ -58,6 +58,9 @@ export default {
           :Overview="serie.overview" 
         />
       </div>
+    </div>
+    <div class="container" v-else>
+      <h3 class="text-white fs-2 py-4">Non ho trovato alcuna serie</h3>
     </div>
   </section>
 </template>
