@@ -39,4 +39,8 @@ export default {
 body{
   background-color: #333333;
 }
+
+hr{
+  border: 2px solid black;
+}
 </style>
