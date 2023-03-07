@@ -45,16 +45,16 @@ export default {
       <h2 v-if="store.movies.length > 0" class="text-white">
         Ho trovato: {{ store.movies.length }} Film
       </h2>
-      <div class="row row-cols-4 g-5 py-4">
-          <AppCard v-for="movie in store.movies" class="d-flex flex-column"
-            :Name="movie.original_title"
-            :Title="movie.title"
-            :Language="movie.original_language"
-            :Vote="movie.vote_average"
-            :BackCover="movie.backdrop_path"
-            :FrontCover="movie.poster_path"
-            :Overview="movie.overview"
-          />
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-5">
+        <AppCard v-for="movie in store.movies" class="d-flex flex-column"
+          :Name="movie.original_title"
+          :Title="movie.title"
+          :Language="movie.original_language"
+          :Vote="movie.vote_average"
+          :BackCover="movie.backdrop_path"
+          :FrontCover="movie.poster_path"
+          :Overview="movie.overview"
+        />
       </div>
     </div>
   </section>
